@@ -25,7 +25,7 @@ void Monster(int boss_hp) {
 }
 
 void space_bar_cls() {
-    printf("\n계속 하시려면 스페이스바를 누르세요.\n");
+    printf("\n계속 하시려면 스페이스바를 누르고 Enter를 누르세요.\n");
     while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
     clear_screen();
 }
@@ -83,7 +83,7 @@ void main_menu() {
         printf("\033[38;1f 이제부터 당신은 탑을 오르는 위대한 여정을 시작하게 됩니다.\n");
         printf("\033[40;1f 시작하기에 앞서 이 탑을 공략하기 위한 튜토리얼을 시작하겠습니다.\n");
 
-        printf("\033[42;1f 계속하려면 스페이스바를 누르세요\n");
+        printf("\033[42;1f 계속하려면 스페이스바를 누르고 Enter를 누르세요\n");
         while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
         clear_screen();
 
