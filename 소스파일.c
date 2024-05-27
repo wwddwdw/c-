@@ -1,4 +1,5 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+//이 소스코드는 미완성입니다.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h> //콘솔 파일 입출력함수
