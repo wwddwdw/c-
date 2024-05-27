@@ -1,7 +1,7 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+#include <conio.h> //콘솔 파일 입출력함수
 #include <time.h>
 
 void clear_screen() {
@@ -103,12 +103,12 @@ void tutorial() {
     printf("\033[3;1f 공격력과 속성, 사용횟수를 가지게 됩니다.");
 
     printf("◑ ━━━「₪」━━━ ◑\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
+    printf(" |             |\n");
+    printf(" |             |\n");
+    printf(" |             |\n");
+    printf(" |             |\n");
+    printf(" |             |\n");
+    printf(" |             |\n");
     printf("◑ ━━━「₪」━━━ ◑\n");
 
     printf("이 카드는 바람타입의 카드입니다. 이 카드는 바람1, 바람2 두 가지 스킬이 존재합니다.\n");
@@ -116,12 +116,12 @@ void tutorial() {
     printf("바람2 스킬은\n\n");
 
     printf("◑ ━━━ ▣ ━━━ ◐\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
-    printf(" |                  |\n");
+    printf(" |            |\n");
+    printf(" |            |\n");
+    printf(" |            |\n");
+    printf(" |            |\n");
+    printf(" |            |\n");
+    printf(" |            |\n");
     printf("◑ ━━━ ▣ ━━━ ◐\n");
 
     printf("이 카드는 땅 타입의 카드입니다. 이 카드는 땅1, 땅2 두 가지 스킬이 존재합니다.\n");
@@ -129,12 +129,12 @@ void tutorial() {
     printf("땅2 스킬은\n\n");
 
     printf(" ━━━┛ ✠ ┗━━━\n");
-    printf("|                   |\n");
-    printf("|                   |\n");
-    printf("|                   |\n");
-    printf("|                   |\n");
-    printf("|                   |\n");
-    printf("|                   |\n");
+    printf("|            |\n");
+    printf("|            |\n");
+    printf("|            |\n");
+    printf("|            |\n");
+    printf("|            |\n");
+    printf("|            |\n");
     printf(" ━━━┓ ✠ ┏━━━ \n");
 
     printf("이 카드는 물 타입의 카드입니다. 이 카드는 물1, 물2 두 가지 스킬이 존재합니다.\n");
@@ -142,12 +142,12 @@ void tutorial() {
     printf("물2스킬은\n\n");
 
     printf(" ═──═ ◇ ═──═\n");
-    printf(" |              |\n");
-    printf(" |              |\n");
-    printf(" |              |\n");
-    printf(" |              |\n");
-    printf(" |              |\n");
-    printf(" |              |\n");
+    printf(" |           |\n");
+    printf(" |           |\n");
+    printf(" |           |\n");
+    printf(" |           |\n");
+    printf(" |           |\n");
+    printf(" |           |\n");
     printf(" ═──═ ◇ ═──═\n");
 
     printf("이 카드는 불 타입의 카드입니다. 이 카드는 불1, 불2 두 가지 스킬이 존재합니다.\n");
