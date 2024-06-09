@@ -1,4 +1,3 @@
-//이 소스코드는 미완성입니다.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,6 +34,9 @@ void 탑의_1층();
 void 탑의_2층();
 void 탑의_3층();
 void 탑의_4층();
+void 탑의_5층();
+void 탑의_6층();
+void 탑의_7층();
 void main_menu();
 void tutorial();
 
@@ -112,9 +114,9 @@ void tutorial() {
     printf(" |             |\n");
     printf("◑ ━━━「₪」━━━ ◑\n");
 
-    printf("이 카드는 바람타입의 카드입니다. 이 카드는 바람1, 바람2 두 가지 스킬이 존재합니다.\n");
-    printf("바람1 스킬은\n");
-    printf("바람2 스킬은\n\n");
+    printf("이 카드는 바람타입의 카드입니다. 이 카드는 '김교수님의 한숨', '418의 에어컨 바람' 두 가지 스킬이 존재합니다.\n");
+    printf("'김교수님의 한숨' 스킬은\n");
+    printf("'418의 에어컨 바람' 스킬은\n\n");
 
     printf("◑ ━━━ ▣ ━━━ ◐\n");
     printf(" |            |\n");
@@ -138,9 +140,9 @@ void tutorial() {
     printf("|            |\n");
     printf(" ━━━┓ ✠ ┏━━━ \n");
 
-    printf("이 카드는 물 타입의 카드입니다. 이 카드는 물1, 물2 두 가지 스킬이 존재합니다.\n");
-    printf("물1스킬은\n");
-    printf("물2스킬은\n\n");
+    printf("이 카드는 물 타입의 카드입니다. 이 카드는 '상명샘물', '침뱉기' 두 가지 스킬이 존재합니다.\n");
+    printf("'상명샘물' 스킬은\n");
+    printf("'침뱉기' 스킬은\n\n");
 
     printf(" ═──═ ◇ ═──═\n");
     printf(" |           |\n");
@@ -151,9 +153,13 @@ void tutorial() {
     printf(" |           |\n");
     printf(" ═──═ ◇ ═──═\n");
 
-    printf("이 카드는 불 타입의 카드입니다. 이 카드는 불1, 불2 두 가지 스킬이 존재합니다.\n");
-    printf("불1 스킬은\n");
-    printf("불2 스킬은\n\n");
+    printf("이 카드는 불 타입의 카드입니다. 이 카드는 '길교수님의 열불', '과열된 노트북' 두 가지 스킬이 존재합니다.\n");
+    printf("'길교수님의 열불' 스킬은\n");
+    printf("'과열된 노트북' 스킬은\n\n");
+
+    printf("이 카드는 전기 타입의 카드입니다. 이 카드는 '블루투스 전자출결', '박교수님의 서버 다운' 두 가지 스킬이 존재합니다.\n");
+    printf("'블루투스 전자출결' 스킬은\n");
+    printf("'박교수님의 서버 다운' 스킬은\n\n");
 
     printf("고유 속성들은 저마다의 상성이 존재합니다. 물->불->풀->전기->물 의 순서대로 상성을 가집니다.\n");
     printf("예를 들어, 보스의 속성이 물타입이라면 전기 속성의 카드가 더 큰 공격력을 가지게 되고, 풀타입의 보스에게는 불타입의 카드가 더 큰 공격력을 가지게 됩니다.\n");
@@ -224,15 +230,15 @@ void 탑의_1층() {
             card_uses[choice_card_attack - 1]--;
 
             if (choice_card_attack == 1) { // 물 카드
-                printf("\n1. 물1   2. 물2\n");
+                printf("\n1. 상명샘물   2. 침뱉기\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 스킬을 사용했다. ");
+                    printf("\n상명샘물 스킬을 사용했다. ");
                     boss_hp -= 3;
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 스킬을 사용했다. ");
+                    printf("\n침뱉기 스킬을 사용했다. ");
                     boss_hp -= 2;
                 }
                 if (rand() % 3 == 0) {
@@ -240,15 +246,15 @@ void 탑의_1층() {
                 }
             }
             else if (choice_card_attack == 2) { // 불 카드
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
                     boss_hp -= 2;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
                     boss_hp -= 1;
                 }
                 int reflect_chance = rand() % 15;
@@ -263,16 +269,16 @@ void 탑의_1층() {
                 }
             }
             else if (choice_card_attack == 3) { // 전기 카드
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 7;
                 }
@@ -281,15 +287,15 @@ void 탑의_1층() {
                 }
             }
             else if (choice_card_attack == 4) { // 풀 카드
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
                     boss_hp -= 3;
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
                     boss_hp -= 2;
                 }
                 if (rand() % 2 == 0) {
@@ -299,58 +305,58 @@ void 탑의_1층() {
             printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
         }
         else if (choice_number == 2) {
-            printf("1. 물 2. 불. 3. 풀. 4. 땅\n");
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
             printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
             scanf("%d", &choice_card_protect);
             if (choice_card_protect == 1) {
-                printf("\n1. 물1  2. 물2\n");
+                printf("\n1. 상명샘물  2. 침뱉기\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 방어 스킬을 사용했다\n");
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 방어 스킬을 사용했다\n");
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
             }
             else if (choice_card_protect == 2) {
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 방어 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 방어 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
             }
             else if (choice_card_protect == 3) {
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 방어 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
                     boss_damage -= 2;
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 방어 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
                     boss_damage -= 3;
                 }
             }
             else if (choice_card_protect == 4) {
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 방어 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
                     boss_damage -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 방어 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
                     boss_damage -= 4;
                 }
             }
@@ -460,15 +466,15 @@ void 탑의_2층() {
             card_uses[choice_card_attack - 1]--;
 
             if (choice_card_attack == 1) { // 물 카드
-                printf("\n1. 물1   2. 물2\n");
+                printf("\n1. 상명샘물   2. 침뱉기\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 스킬을 사용했다. ");
+                    printf("\n상명샘물 스킬을 사용했다. ");
                     boss_hp -= 2; // 물타입 공격력 감소
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 스킬을 사용했다. ");
+                    printf("\n침뱉기 스킬을 사용했다. ");
                     boss_hp -= 1; // 물타입 공격력 감소
                 }
                 if (rand() % 3 == 0) {
@@ -476,15 +482,15 @@ void 탑의_2층() {
                 }
             }
             else if (choice_card_attack == 2) { // 불 카드
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
                     boss_hp -= 2;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
                     boss_hp -= 1;
                 }
                 int reflect_chance = rand() % 15;
@@ -499,16 +505,16 @@ void 탑의_2층() {
                 }
             }
             else if (choice_card_attack == 3) { // 전기 카드
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 7;
                 }
@@ -517,15 +523,15 @@ void 탑의_2층() {
                 }
             }
             else if (choice_card_attack == 4) { // 풀 카드
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
                     boss_hp -= 2; // 풀타입 공격력 감소
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
                     boss_hp -= 1; // 풀타입 공격력 감소
                 }
                 if (rand() % 2 == 0) {
@@ -535,58 +541,58 @@ void 탑의_2층() {
             printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
         }
         else if (choice_number == 2) {
-            printf("1. 물 2. 불. 3. 풀. 4. 땅\n");
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
             printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
             scanf("%d", &choice_card_protect);
             if (choice_card_protect == 1) {
-                printf("\n1. 물1  2. 물2\n");
+                printf("\n1. 상명샘물  2. 침뱉기\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 방어 스킬을 사용했다\n");
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
                     boss_damage -= 0; // 물타입 방어력 감소
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 방어 스킬을 사용했다\n");
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
                     boss_damage -= 0; // 물타입 방어력 감소
                 }
             }
             else if (choice_card_protect == 2) {
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 방어 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 방어 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
             }
             else if (choice_card_protect == 3) {
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 방어 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
                     boss_damage -= 1; // 풀타입 방어력 감소
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 방어 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
                     boss_damage -= 2; // 풀타입 방어력 감소
                 }
             }
             else if (choice_card_protect == 4) {
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 방어 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
                     boss_damage -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 방어 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
                     boss_damage -= 4;
                 }
             }
@@ -696,15 +702,15 @@ void 탑의_3층() {
             card_uses[choice_card_attack - 1]--;
 
             if (choice_card_attack == 1) { // 물 카드
-                printf("\n1. 물1   2. 물2\n");
+                printf("\n1. 상명샘물   2. 침뱉기\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 스킬을 사용했다. ");
+                    printf("\n상명샘물 스킬을 사용했다. ");
                     boss_hp -= 5; // 물타입 공격력 증가
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 스킬을 사용했다. ");
+                    printf("\n침뱉기 스킬을 사용했다. ");
                     boss_hp -= 4; // 물타입 공격력 증가
                 }
                 if (rand() % 3 == 0) {
@@ -712,15 +718,15 @@ void 탑의_3층() {
                 }
             }
             else if (choice_card_attack == 2) { // 불 카드
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
                     boss_hp -= 2;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
                     boss_hp -= 1;
                 }
                 int reflect_chance = rand() % 15;
@@ -735,16 +741,16 @@ void 탑의_3층() {
                 }
             }
             else if (choice_card_attack == 3) { // 전기 카드
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 7;
                 }
@@ -753,15 +759,15 @@ void 탑의_3층() {
                 }
             }
             else if (choice_card_attack == 4) { // 풀 카드
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
                     boss_hp -= 3;
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
                     boss_hp -= 2;
                 }
                 if (rand() % 2 == 0) {
@@ -771,58 +777,58 @@ void 탑의_3층() {
             printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
         }
         else if (choice_number == 2) {
-            printf("1. 물 2. 불. 3. 풀. 4. 땅\n");
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
             printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
             scanf("%d", &choice_card_protect);
             if (choice_card_protect == 1) {
-                printf("\n1. 물1  2. 물2\n");
+                printf("\n1. 상명샘물  2. 침뱉기\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 방어 스킬을 사용했다\n");
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
                     boss_damage -= 2; // 물타입 방어력 증가
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 방어 스킬을 사용했다\n");
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
                     boss_damage -= 2; // 물타입 방어력 증가
                 }
             }
             else if (choice_card_protect == 2) {
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 방어 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 방어 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
             }
             else if (choice_card_protect == 3) {
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 방어 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
                     boss_damage -= 2;
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 방어 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
                     boss_damage -= 3;
                 }
             }
             else if (choice_card_protect == 4) {
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 방어 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
                     boss_damage -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 방어 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
                     boss_damage -= 4;
                 }
             }
@@ -932,15 +938,15 @@ void 탑의_4층() {
             card_uses[choice_card_attack - 1]--;
 
             if (choice_card_attack == 1) { // 물 카드
-                printf("\n1. 물1   2. 물2\n");
+                printf("\n1. 상명샘물   2. 침뱉기\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 스킬을 사용했다. ");
+                    printf("\n상명샘물 스킬을 사용했다. ");
                     boss_hp -= 4; // 물타입 공격력 감소 (20% 감소)
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 스킬을 사용했다. ");
+                    printf("\n침뱉기 스킬을 사용했다. ");
                     boss_hp -= 3; // 물타입 공격력 감소 (20% 감소)
                 }
                 if (rand() % 3 == 0) {
@@ -948,15 +954,15 @@ void 탑의_4층() {
                 }
             }
             else if (choice_card_attack == 2) { // 불 카드
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
                     boss_hp -= 2;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
                     boss_hp -= 1;
                 }
                 int reflect_chance = rand() % 15;
@@ -971,16 +977,16 @@ void 탑의_4층() {
                 }
             }
             else if (choice_card_attack == 3) { // 전기 카드
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
                     printf("상성 효과로 스킬의 위력이 증가합니다!");
                     boss_hp -= 7;
                 }
@@ -989,15 +995,15 @@ void 탑의_4층() {
                 }
             }
             else if (choice_card_attack == 4) { // 풀 카드
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
                     boss_hp -= 4; // 풀타입 공격력 증가 (20% 증가)
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
                     boss_hp -= 3; // 풀타입 공격력 증가 (20% 증가)
                 }
                 if (rand() % 2 == 0) {
@@ -1007,58 +1013,58 @@ void 탑의_4층() {
             printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
         }
         else if (choice_number == 2) {
-            printf("1. 물 2. 불. 3. 풀. 4. 땅\n");
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
             printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
             scanf("%d", &choice_card_protect);
             if (choice_card_protect == 1) {
-                printf("\n1. 물1  2. 물2\n");
+                printf("\n1. 상명샘물  2. 침뱉기\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_water);
                 if (choice_card_skill_water == 1) {
-                    printf("\n물1 방어 스킬을 사용했다\n");
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
                     boss_damage -= 2; // 물타입 방어력 증가 (20% 감소)
                 }
                 else if (choice_card_skill_water == 2) {
-                    printf("\n물2 방어 스킬을 사용했다\n");
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
                     boss_damage -= 2; // 물타입 방어력 증가 (20% 감소)
                 }
             }
             else if (choice_card_protect == 2) {
-                printf("\n1. 불1  2. 불2\n");
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_fire);
                 if (choice_card_skill_fire == 1) {
-                    printf("\n불1 방어 스킬을 사용했다\n");
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
                 else if (choice_card_skill_fire == 2) {
-                    printf("\n불2 방어 스킬을 사용했다\n");
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
                     boss_damage -= 1;
                 }
             }
             else if (choice_card_protect == 3) {
-                printf("\n1. 풀1  2. 풀2\n");
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_plant);
                 if (choice_card_skill_plant == 1) {
-                    printf("\n풀1 방어 스킬을 사용했다\n");
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
                     boss_damage -= 2; // 풀타입 방어력 증가 (20% 증가)
                 }
                 else if (choice_card_skill_plant == 2) {
-                    printf("\n풀2 방어 스킬을 사용했다\n");
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
                     boss_damage -= 3; // 풀타입 방어력 증가 (20% 증가)
                 }
             }
             else if (choice_card_protect == 4) {
-                printf("\n1. 전기1  2. 전기2\n");
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
                 printf("스킬 두 가지 중 하나를 선택하세요 : ");
                 scanf("%d", &choice_card_skill_electric);
                 if (choice_card_skill_electric == 1) {
-                    printf("\n전기1 방어 스킬을 사용했다\n");
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
                     boss_damage -= 5;
                 }
                 else if (choice_card_skill_electric == 2) {
-                    printf("\n전기2 방어 스킬을 사용했다\n");
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
                     boss_damage -= 4;
                 }
             }
@@ -1120,7 +1126,1422 @@ void 탑의_4층() {
         }
         else if (boss_hp <= 0) {
             printf("보스를 처치했습니다! 스테이지 클리어!\n");
-            printf("당신은 탑의 모든 보스를 물리쳤습니다. 수고하셨습니다.\n");
+            printf("탑의 5층으로 가려면 스페이스바를 누르세요 : ");
+            while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
+            clear_screen();
+            탑의_5층();
+            break;
+        }
+
+        draw_status(player_hp, boss_hp); // 상태 갱신 후 화면 다시 그리기
+    }
+}
+
+void 탑의_5층() {
+    int choice_number;
+    int choice_card_attack;
+    int choice_card_protect;
+    int choice_card_skill_water;
+    int choice_card_skill_fire;
+    int choice_card_skill_electric;
+    int choice_card_skill_plant;
+    int boss_hp = 100;
+    int player_hp = 20;
+    int boss_damage;
+    int card_uses[4] = { 10, 10, 10, 10 }; // 각 카드의 사용 횟수 (물, 불, 전기, 풀)
+    int water_boost_turns = 0;
+    int skip_boss_turn = 0;
+    int dodge_next = 0;
+    int reflect_damage = 0;
+
+    draw_status(player_hp, boss_hp);
+
+    while (player_hp > 0 && boss_hp > 0) {
+        printf("번호를 선택하세요 : ");
+        scanf("%d", &choice_number);
+
+        if (choice_number == 1) {
+            printf("\n1. 물 (%d회 남음) 2. 불 (%d회 남음) 3. 전기 (%d회 남음) 4. 풀 (%d회 남음)\n",
+                card_uses[0], card_uses[1], card_uses[2], card_uses[3]);
+            printf("공격에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_attack);
+
+            if (card_uses[choice_card_attack - 1] <= 0) {
+                printf("이 카드는 더 이상 사용할 수 없습니다.\n");
+                continue;
+            }
+
+            card_uses[choice_card_attack - 1]--;
+
+            if (choice_card_attack == 1) { // 물 카드
+                printf("\n1. 상명샘물   2. 침뱉기\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 스킬을 사용했다. ");
+                    boss_hp -= 6; // 물타입 공격력 감소 (30% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 스킬을 사용했다. ");
+                    boss_hp -= 5; // 물타입 공격력 감소 (30% 증가)
+                }
+                if (rand() % 3 == 0) {
+                    water_boost_turns = 1;
+                }
+            }
+            else if (choice_card_attack == 2) { // 불 카드
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
+                    boss_hp -= 4;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
+                    boss_hp -= 3;
+                }
+                int reflect_chance = rand() % 15;
+                if (reflect_chance < 5) {
+                    reflect_damage = 25;
+                }
+                else if (reflect_chance < 8) {
+                    reflect_damage = 50;
+                }
+                else if (reflect_chance < 10) {
+                    reflect_damage = 75;
+                }
+            }
+            else if (choice_card_attack == 3) { // 전기 카드
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 8;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 10;
+                }
+                if (rand() % 10 < 6) {
+                    skip_boss_turn = 1;
+                }
+            }
+            else if (choice_card_attack == 4) { // 풀 카드
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
+                    boss_hp -= 5;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
+                    boss_hp -= 4;
+                }
+                if (rand() % 2 == 0) {
+                    dodge_next = 1;
+                }
+            }
+            printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+        }
+        else if (choice_number == 2) {
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
+            printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_protect);
+            if (choice_card_protect == 1) {
+                printf("\n1. 상명샘물  2. 침뱉기\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
+                    boss_damage -= 3; // 물타입 방어력 증가 (30% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
+                    boss_damage -= 3; // 물타입 방어력 증가 (30% 증가)
+                }
+            }
+            else if (choice_card_protect == 2) {
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
+                    boss_damage -= 2;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
+                    boss_damage -= 2;
+                }
+            }
+            else if (choice_card_protect == 3) {
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
+                    boss_damage -= 3;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+            else if (choice_card_protect == 4) {
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+        }
+        else if (choice_number == 3) {
+            printf("당신은 5층에서 도망쳤습니다.\n");
+            break;
+        }
+        else if (choice_number == 4) {
+            clear_screen();
+            main_menu();
+            break;
+        }
+
+        // 상태 갱신 후 화면 다시 그리기
+        draw_status(player_hp, boss_hp);
+
+        // 보스의 공격 차례
+        if (boss_hp > 0 && !skip_boss_turn) {
+            boss_damage = 4; // 보스의 기본 공격력 설정 (전기타입 보스의 공격력 증가)
+
+            if (dodge_next) {
+                printf("보스의 공격을 회피했습니다!\n");
+                dodge_next = 0;
+            }
+            else {
+                player_hp -= boss_damage;
+                printf("전기마법사가 당신을 공격했습니다. 플레이어의 체력이 %d 남았습니다.\n", player_hp);
+                if (reflect_damage > 0) {
+                    printf("공격 데미지의 %d%%를 반사했습니다!\n", reflect_damage);
+                    boss_hp -= boss_damage * reflect_damage / 100;
+                    reflect_damage = 0;
+                    printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+                }
+            }
+        }
+        else if (skip_boss_turn) {
+            printf("보스가 기절하여 공격하지 못했습니다.\n");
+            skip_boss_turn = 0;
+        }
+
+        // 물 카드 사용 후 플레이어 공격력 증가 처리
+        if (water_boost_turns > 0) {
+            if (rand() % 3 == 0) {
+                double boost = 1.8 + (rand() % 8) / 10.0;
+                printf("플레이어의 공격력이 %.1f배 증가했습니다!\n", boost);
+                boss_hp -= boss_damage * boost;
+                printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+            }
+            water_boost_turns = 0;
+        }
+
+        if (player_hp <= 0) {
+            printf("당신은 5층에서 죽었습니다.\n");
+            printf("스페이스바를 누르면 메인화면으로 돌아갑니다.");
+            space_bar_cls();
+            main_menu();
+            break;
+        }
+        else if (boss_hp <= 0) {
+            printf("보스를 처치했습니다! 스테이지 클리어!\n");
+            printf("탑의 6층으로 가려면 스페이스바를 누르세요 : ");
+            while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
+            clear_screen();
+            탑의_6층();
+            break;
+        }
+
+        draw_status(player_hp, boss_hp); // 상태 갱신 후 화면 다시 그리기
+    }
+}
+
+void 탑의_6층() {
+    int choice_number;
+    int choice_card_attack;
+    int choice_card_protect;
+    int choice_card_skill_water;
+    int choice_card_skill_fire;
+    int choice_card_skill_electric;
+    int choice_card_skill_plant;
+    int boss_hp = 120;
+    int player_hp = 20;
+    int boss_damage;
+    int card_uses[4] = { 10, 10, 10, 10 }; // 각 카드의 사용 횟수 (물, 불, 전기, 풀)
+    int water_boost_turns = 0;
+    int skip_boss_turn = 0;
+    int dodge_next = 0;
+    int reflect_damage = 0;
+
+    draw_status(player_hp, boss_hp);
+
+    while (player_hp > 0 && boss_hp > 0) {
+        printf("번호를 선택하세요 : ");
+        scanf("%d", &choice_number);
+
+        if (choice_number == 1) {
+            printf("\n1. 물 (%d회 남음) 2. 불 (%d회 남음) 3. 전기 (%d회 남음) 4. 풀 (%d회 남음)\n",
+                card_uses[0], card_uses[1], card_uses[2], card_uses[3]);
+            printf("공격에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_attack);
+
+            if (card_uses[choice_card_attack - 1] <= 0) {
+                printf("이 카드는 더 이상 사용할 수 없습니다.\n");
+                continue;
+            }
+
+            card_uses[choice_card_attack - 1]--;
+
+            if (choice_card_attack == 1) { // 물 카드
+                printf("\n1. 상명샘물   2. 침뱉기\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 스킬을 사용했다. ");
+                    boss_hp -= 7; // 물타입 공격력 증가 (30% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 스킬을 사용했다. ");
+                    boss_hp -= 6; // 물타입 공격력 증가 (30% 증가)
+                }
+                if (rand() % 3 == 0) {
+                    water_boost_turns = 1;
+                }
+            }
+            else if (choice_card_attack == 2) { // 불 카드
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
+                    boss_hp -= 5;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
+                    boss_hp -= 4;
+                }
+                int reflect_chance = rand() % 15;
+                if (reflect_chance < 5) {
+                    reflect_damage = 25;
+                }
+                else if (reflect_chance < 8) {
+                    reflect_damage = 50;
+                }
+                else if (reflect_chance < 10) {
+                    reflect_damage = 75;
+                }
+            }
+            else if (choice_card_attack == 3) { // 전기 카드
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 9;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 11;
+                }
+                if (rand() % 10 < 6) {
+                    skip_boss_turn = 1;
+                }
+            }
+            else if (choice_card_attack == 4) { // 풀 카드
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
+                    boss_hp -= 6;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
+                    boss_hp -= 5;
+                }
+                if (rand() % 2 == 0) {
+                    dodge_next = 1;
+                }
+            }
+            printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+        }
+        else if (choice_number == 2) {
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
+            printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_protect);
+            if (choice_card_protect == 1) {
+                printf("\n1. 상명샘물  2. 침뱉기\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
+                    boss_damage -= 4; // 물타입 방어력 증가 (30% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
+                    boss_damage -= 4; // 물타입 방어력 증가 (30% 증가)
+                }
+            }
+            else if (choice_card_protect == 2) {
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
+                    boss_damage -= 3;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
+                    boss_damage -= 3;
+                }
+            }
+            else if (choice_card_protect == 3) {
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+            }
+            else if (choice_card_protect == 4) {
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+        }
+        else if (choice_number == 3) {
+            printf("당신은 6층에서 도망쳤습니다.\n");
+            break;
+        }
+        else if (choice_number == 4) {
+            clear_screen();
+            main_menu();
+            break;
+        }
+
+        // 상태 갱신 후 화면 다시 그리기
+        draw_status(player_hp, boss_hp);
+
+        // 보스의 공격 차례
+        if (boss_hp > 0 && !skip_boss_turn) {
+            boss_damage = 4; // 보스의 기본 공격력 설정 (전기타입 보스의 공격력 증가)
+
+            if (dodge_next) {
+                printf("보스의 공격을 회피했습니다!\n");
+                dodge_next = 0;
+            }
+            else {
+                player_hp -= boss_damage;
+                printf("전기마법사가 당신을 공격했습니다. 플레이어의 체력이 %d 남았습니다.\n", player_hp);
+                if (reflect_damage > 0) {
+                    printf("공격 데미지의 %d%%를 반사했습니다!\n", reflect_damage);
+                    boss_hp -= boss_damage * reflect_damage / 100;
+                    reflect_damage = 0;
+                    printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+                }
+            }
+        }
+        else if (skip_boss_turn) {
+            printf("보스가 기절하여 공격하지 못했습니다.\n");
+            skip_boss_turn = 0;
+        }
+
+        // 물 카드 사용 후 플레이어 공격력 증가 처리
+        if (water_boost_turns > 0) {
+            if (rand() % 3 == 0) {
+                double boost = 1.8 + (rand() % 8) / 10.0;
+                printf("플레이어의 공격력이 %.1f배 증가했습니다!\n", boost);
+                boss_hp -= boss_damage * boost;
+                printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+            }
+            water_boost_turns = 0;
+        }
+
+        if (player_hp <= 0) {
+            printf("당신은 6층에서 죽었습니다.\n");
+            printf("스페이스바를 누르면 메인화면으로 돌아갑니다.");
+            space_bar_cls();
+            main_menu();
+            break;
+        }
+        else if (boss_hp <= 0) {
+            printf("보스를 처치했습니다! 스테이지 클리어!\n");
+            printf("탑의 7층으로 가려면 스페이스바를 누르세요 : ");
+            while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
+            clear_screen();
+            탑의_7층();
+            break;
+        }
+
+        draw_status(player_hp, boss_hp); // 상태 갱신 후 화면 다시 그리기
+    }
+}
+
+void 탑의_7층() {
+    int choice_number;
+    int choice_card_attack;
+    int choice_card_protect;
+    int choice_card_skill_water;
+    int choice_card_skill_fire;
+    int choice_card_skill_electric;
+    int choice_card_skill_plant;
+    int boss_hp = 150;
+    int player_hp = 20;
+    int boss_damage;
+    int card_uses[4] = { 10, 10, 10, 10 }; // 각 카드의 사용 횟수 (물, 불, 전기, 풀)
+    int water_boost_turns = 0;
+    int skip_boss_turn = 0;
+    int dodge_next = 0;
+    int reflect_damage = 0;
+
+    draw_status(player_hp, boss_hp);
+
+    while (player_hp > 0 && boss_hp > 0) {
+        printf("번호를 선택하세요 : ");
+        scanf("%d", &choice_number);
+
+        if (choice_number == 1) {
+            printf("\n1. 물 (%d회 남음) 2. 불 (%d회 남음) 3. 전기 (%d회 남음) 4. 풀 (%d회 남음)\n",
+                card_uses[0], card_uses[1], card_uses[2], card_uses[3]);
+            printf("공격에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_attack);
+
+            if (card_uses[choice_card_attack - 1] <= 0) {
+                printf("이 카드는 더 이상 사용할 수 없습니다.\n");
+                continue;
+            }
+
+            card_uses[choice_card_attack - 1]--;
+
+            if (choice_card_attack == 1) { // 물 카드
+                printf("\n1. 상명샘물   2. 침뱉기\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 스킬을 사용했다. ");
+                    boss_hp -= 8; // 물타입 공격력 증가 (40% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 스킬을 사용했다. ");
+                    boss_hp -= 7; // 물타입 공격력 증가 (40% 증가)
+                }
+                if (rand() % 3 == 0) {
+                    water_boost_turns = 1;
+                }
+            }
+            else if (choice_card_attack == 2) { // 불 카드
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
+                    boss_hp -= 6;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
+                    boss_hp -= 5;
+                }
+                int reflect_chance = rand() % 15;
+                if (reflect_chance < 5) {
+                    reflect_damage = 25;
+                }
+                else if (reflect_chance < 8) {
+                    reflect_damage = 50;
+                }
+                else if (reflect_chance < 10) {
+                    reflect_damage = 75;
+                }
+            }
+            else if (choice_card_attack == 3) { // 전기 카드
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 11;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 13;
+                }
+                if (rand() % 10 < 6) {
+                    skip_boss_turn = 1;
+                }
+            }
+            else if (choice_card_attack == 4) { // 풀 카드
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
+                    boss_hp -= 7;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
+                    boss_hp -= 6;
+                }
+                if (rand() % 2 == 0) {
+                    dodge_next = 1;
+                }
+            }
+            printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+        }
+        else if (choice_number == 2) {
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
+            printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_protect);
+            if (choice_card_protect == 1) {
+                printf("\n1. 상명샘물  2. 침뱉기\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
+                    boss_damage -= 5; // 물타입 방어력 증가 (40% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
+                    boss_damage -= 5; // 물타입 방어력 증가 (40% 증가)
+                }
+            }
+            else if (choice_card_protect == 2) {
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+            else if (choice_card_protect == 3) {
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
+                    boss_damage -= 6;
+                }
+            }
+            else if (choice_card_protect == 4) {
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+        }
+        else if (choice_number == 3) {
+            printf("당신은 7층에서 도망쳤습니다.\n");
+            break;
+        }
+        else if (choice_number == 4) {
+            clear_screen();
+            main_menu();
+            break;
+        }
+
+        // 상태 갱신 후 화면 다시 그리기
+        draw_status(player_hp, boss_hp);
+
+        // 보스의 공격 차례
+        if (boss_hp > 0 && !skip_boss_turn) {
+            boss_damage = 5; // 보스의 기본 공격력 설정 (전기타입 보스의 공격력 증가)
+
+            if (dodge_next) {
+                printf("보스의 공격을 회피했습니다!\n");
+                dodge_next = 0;
+            }
+            else {
+                player_hp -= boss_damage;
+                printf("전기마법사가 당신을 공격했습니다. 플레이어의 체력이 %d 남았습니다.\n", player_hp);
+                if (reflect_damage > 0) {
+                    printf("공격 데미지의 %d%%를 반사했습니다!\n", reflect_damage);
+                    boss_hp -= boss_damage * reflect_damage / 100;
+                    reflect_damage = 0;
+                    printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+                }
+            }
+        }
+        else if (skip_boss_turn) {
+            printf("보스가 기절하여 공격하지 못했습니다.\n");
+            skip_boss_turn = 0;
+        }
+
+        // 물 카드 사용 후 플레이어 공격력 증가 처리
+        if (water_boost_turns > 0) {
+            if (rand() % 3 == 0) {
+                double boost = 1.8 + (rand() % 8) / 10.0;
+                printf("플레이어의 공격력이 %.1f배 증가했습니다!\n", boost);
+                boss_hp -= boss_damage * boost;
+                printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+            }
+            water_boost_turns = 0;
+        }
+
+        if (player_hp <= 0) {
+            printf("당신은 7층에서 죽었습니다.\n");
+            printf("스페이스바를 누르면 메인화면으로 돌아갑니다.");
+            space_bar_cls();
+            main_menu();
+            break;
+        }
+        else if (boss_hp <= 0) {
+            printf("보스를 처치했습니다! 스테이지 클리어!\n");
+            printf("탑의 8층으로 가려면 스페이스바를 누르세요 : ");
+            while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
+            clear_screen();
+            탑의_8층();
+            break;
+        }
+
+        draw_status(player_hp, boss_hp); // 상태 갱신 후 화면 다시 그리기
+    }
+}
+
+void 탑의_8층() {
+    int choice_number;
+    int choice_card_attack;
+    int choice_card_protect;
+    int choice_card_skill_water;
+    int choice_card_skill_fire;
+    int choice_card_skill_electric;
+    int choice_card_skill_plant;
+    int boss_hp = 200;
+    int player_hp = 20;
+    int boss_damage;
+    int card_uses[4] = { 10, 10, 10, 10 }; // 각 카드의 사용 횟수 (물, 불, 전기, 풀)
+    int water_boost_turns = 0;
+    int skip_boss_turn = 0;
+    int dodge_next = 0;
+    int reflect_damage = 0;
+
+    draw_status(player_hp, boss_hp);
+
+    while (player_hp > 0 && boss_hp > 0) {
+        printf("번호를 선택하세요 : ");
+        scanf("%d", &choice_number);
+
+        if (choice_number == 1) {
+            printf("\n1. 물 (%d회 남음) 2. 불 (%d회 남음) 3. 전기 (%d회 남음) 4. 풀 (%d회 남음)\n",
+                card_uses[0], card_uses[1], card_uses[2], card_uses[3]);
+            printf("공격에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_attack);
+
+            if (card_uses[choice_card_attack - 1] <= 0) {
+                printf("이 카드는 더 이상 사용할 수 없습니다.\n");
+                continue;
+            }
+
+            card_uses[choice_card_attack - 1]--;
+
+            if (choice_card_attack == 1) { // 물 카드
+                printf("\n1. 상명샘물   2. 침뱉기\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 스킬을 사용했다. ");
+                    boss_hp -= 10; // 물타입 공격력 증가 (40% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 스킬을 사용했다. ");
+                    boss_hp -= 9; // 물타입 공격력 증가 (40% 증가)
+                }
+                if (rand() % 3 == 0) {
+                    water_boost_turns = 1;
+                }
+            }
+            else if (choice_card_attack == 2) { // 불 카드
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
+                    boss_hp -= 7;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
+                    boss_hp -= 6;
+                }
+                int reflect_chance = rand() % 15;
+                if (reflect_chance < 5) {
+                    reflect_damage = 25;
+                }
+                else if (reflect_chance < 8) {
+                    reflect_damage = 50;
+                }
+                else if (reflect_chance < 10) {
+                    reflect_damage = 75;
+                }
+            }
+            else if (choice_card_attack == 3) { // 전기 카드
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 12;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 14;
+                }
+                if (rand() % 10 < 6) {
+                    skip_boss_turn = 1;
+                }
+            }
+            else if (choice_card_attack == 4) { // 풀 카드
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
+                    boss_hp -= 8;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
+                    boss_hp -= 7;
+                }
+                if (rand() % 2 == 0) {
+                    dodge_next = 1;
+                }
+            }
+            printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+        }
+        else if (choice_number == 2) {
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
+            printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_protect);
+            if (choice_card_protect == 1) {
+                printf("\n1. 상명샘물  2. 침뱉기\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
+                    boss_damage -= 6; // 물타입 방어력 증가 (40% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
+                    boss_damage -= 6; // 물타입 방어력 증가 (40% 증가)
+                }
+            }
+            else if (choice_card_protect == 2) {
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+            }
+            else if (choice_card_protect == 3) {
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
+                    boss_damage -= 6;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
+                    boss_damage -= 7;
+                }
+            }
+            else if (choice_card_protect == 4) {
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+        }
+        else if (choice_number == 3) {
+            printf("당신은 8층에서 도망쳤습니다.\n");
+            break;
+        }
+        else if (choice_number == 4) {
+            clear_screen();
+            main_menu();
+            break;
+        }
+
+        // 상태 갱신 후 화면 다시 그리기
+        draw_status(player_hp, boss_hp);
+
+        // 보스의 공격 차례
+        if (boss_hp > 0 && !skip_boss_turn) {
+            boss_damage = 5; // 보스의 기본 공격력 설정 (전기타입 보스의 공격력 증가)
+
+            if (dodge_next) {
+                printf("보스의 공격을 회피했습니다!\n");
+                dodge_next = 0;
+            }
+            else {
+                player_hp -= boss_damage;
+                printf("전기마법사가 당신을 공격했습니다. 플레이어의 체력이 %d 남았습니다.\n", player_hp);
+                if (reflect_damage > 0) {
+                    printf("공격 데미지의 %d%%를 반사했습니다!\n", reflect_damage);
+                    boss_hp -= boss_damage * reflect_damage / 100;
+                    reflect_damage = 0;
+                    printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+                }
+            }
+        }
+        else if (skip_boss_turn) {
+            printf("보스가 기절하여 공격하지 못했습니다.\n");
+            skip_boss_turn = 0;
+        }
+
+        // 물 카드 사용 후 플레이어 공격력 증가 처리
+        if (water_boost_turns > 0) {
+            if (rand() % 3 == 0) {
+                double boost = 1.8 + (rand() % 8) / 10.0;
+                printf("플레이어의 공격력이 %.1f배 증가했습니다!\n", boost);
+                boss_hp -= boss_damage * boost;
+                printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+            }
+            water_boost_turns = 0;
+        }
+
+        if (player_hp <= 0) {
+            printf("당신은 8층에서 죽었습니다.\n");
+            printf("스페이스바를 누르면 메인화면으로 돌아갑니다.");
+            space_bar_cls();
+            main_menu();
+            break;
+        }
+        else if (boss_hp <= 0) {
+            printf("보스를 처치했습니다! 스테이지 클리어!\n");
+            printf("탑의 9층으로 가려면 스페이스바를 누르세요 : ");
+            while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
+            clear_screen();
+            탑의_9층();
+            break;
+        }
+
+        draw_status(player_hp, boss_hp); // 상태 갱신 후 화면 다시 그리기
+    }
+}
+
+void 탑의_9층() {
+    int choice_number;
+    int choice_card_attack;
+    int choice_card_protect;
+    int choice_card_skill_water;
+    int choice_card_skill_fire;
+    int choice_card_skill_electric;
+    int choice_card_skill_plant;
+    int boss_hp = 250;
+    int player_hp = 20;
+    int boss_damage;
+    int card_uses[4] = { 10, 10, 10, 10 }; // 각 카드의 사용 횟수 (물, 불, 전기, 풀)
+    int water_boost_turns = 0;
+    int skip_boss_turn = 0;
+    int dodge_next = 0;
+    int reflect_damage = 0;
+
+    draw_status(player_hp, boss_hp);
+
+    while (player_hp > 0 && boss_hp > 0) {
+        printf("번호를 선택하세요 : ");
+        scanf("%d", &choice_number);
+
+        if (choice_number == 1) {
+            printf("\n1. 물 (%d회 남음) 2. 불 (%d회 남음) 3. 전기 (%d회 남음) 4. 풀 (%d회 남음)\n",
+                card_uses[0], card_uses[1], card_uses[2], card_uses[3]);
+            printf("공격에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_attack);
+
+            if (card_uses[choice_card_attack - 1] <= 0) {
+                printf("이 카드는 더 이상 사용할 수 없습니다.\n");
+                continue;
+            }
+
+            card_uses[choice_card_attack - 1]--;
+
+            if (choice_card_attack == 1) { // 물 카드
+                printf("\n1. 상명샘물   2. 침뱉기\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 스킬을 사용했다. ");
+                    boss_hp -= 12; // 물타입 공격력 증가 (50% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 스킬을 사용했다. ");
+                    boss_hp -= 11; // 물타입 공격력 증가 (50% 증가)
+                }
+                if (rand() % 3 == 0) {
+                    water_boost_turns = 1;
+                }
+            }
+            else if (choice_card_attack == 2) { // 불 카드
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
+                    boss_hp -= 8;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
+                    boss_hp -= 7;
+                }
+                int reflect_chance = rand() % 15;
+                if (reflect_chance < 5) {
+                    reflect_damage = 25;
+                }
+                else if (reflect_chance < 8) {
+                    reflect_damage = 50;
+                }
+                else if (reflect_chance < 10) {
+                    reflect_damage = 75;
+                }
+            }
+            else if (choice_card_attack == 3) { // 전기 카드
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 13;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 15;
+                }
+                if (rand() % 10 < 6) {
+                    skip_boss_turn = 1;
+                }
+            }
+            else if (choice_card_attack == 4) { // 풀 카드
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
+                    boss_hp -= 9;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
+                    boss_hp -= 8;
+                }
+                if (rand() % 2 == 0) {
+                    dodge_next = 1;
+                }
+            }
+            printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+        }
+        else if (choice_number == 2) {
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
+            printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_protect);
+            if (choice_card_protect == 1) {
+                printf("\n1. 상명샘물  2. 침뱉기\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
+                    boss_damage -= 7; // 물타입 방어력 증가 (50% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
+                    boss_damage -= 7; // 물타입 방어력 증가 (50% 증가)
+                }
+            }
+            else if (choice_card_protect == 2) {
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
+                    boss_damage -= 6;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
+                    boss_damage -= 6;
+                }
+            }
+            else if (choice_card_protect == 3) {
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
+                    boss_damage -= 7;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
+                    boss_damage -= 8;
+                }
+            }
+            else if (choice_card_protect == 4) {
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+        }
+        else if (choice_number == 3) {
+            printf("당신은 9층에서 도망쳤습니다.\n");
+            break;
+        }
+        else if (choice_number == 4) {
+            clear_screen();
+            main_menu();
+            break;
+        }
+
+        // 상태 갱신 후 화면 다시 그리기
+        draw_status(player_hp, boss_hp);
+
+        // 보스의 공격 차례
+        if (boss_hp > 0 && !skip_boss_turn) {
+            boss_damage = 5; // 보스의 기본 공격력 설정 (전기타입 보스의 공격력 증가)
+
+            if (dodge_next) {
+                printf("보스의 공격을 회피했습니다!\n");
+                dodge_next = 0;
+            }
+            else {
+                player_hp -= boss_damage;
+                printf("전기마법사가 당신을 공격했습니다. 플레이어의 체력이 %d 남았습니다.\n", player_hp);
+                if (reflect_damage > 0) {
+                    printf("공격 데미지의 %d%%를 반사했습니다!\n", reflect_damage);
+                    boss_hp -= boss_damage * reflect_damage / 100;
+                    reflect_damage = 0;
+                    printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+                }
+            }
+        }
+        else if (skip_boss_turn) {
+            printf("보스가 기절하여 공격하지 못했습니다.\n");
+            skip_boss_turn = 0;
+        }
+
+        // 물 카드 사용 후 플레이어 공격력 증가 처리
+        if (water_boost_turns > 0) {
+            if (rand() % 3 == 0) {
+                double boost = 1.8 + (rand() % 8) / 10.0;
+                printf("플레이어의 공격력이 %.1f배 증가했습니다!\n", boost);
+                boss_hp -= boss_damage * boost;
+                printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+            }
+            water_boost_turns = 0;
+        }
+
+        if (player_hp <= 0) {
+            printf("당신은 9층에서 죽었습니다.\n");
+            printf("스페이스바를 누르면 메인화면으로 돌아갑니다.");
+            space_bar_cls();
+            main_menu();
+            break;
+        }
+        else if (boss_hp <= 0) {
+            printf("보스를 처치했습니다! 스테이지 클리어!\n");
+            printf("탑의 10층으로 가려면 스페이스바를 누르세요 : ");
+            while (getchar() != ' '); // 사용자의 스페이스바 입력을 기다림
+            clear_screen();
+            탑의_10층();
+            break;
+        }
+
+        draw_status(player_hp, boss_hp); // 상태 갱신 후 화면 다시 그리기
+    }
+}
+
+void 탑의_10층() {
+    int choice_number;
+    int choice_card_attack;
+    int choice_card_protect;
+    int choice_card_skill_water;
+    int choice_card_skill_fire;
+    int choice_card_skill_electric;
+    int choice_card_skill_plant;
+    int boss_hp = 300;
+    int player_hp = 20;
+    int boss_damage;
+    int card_uses[4] = { 10, 10, 10, 10 }; // 각 카드의 사용 횟수 (물, 불, 전기, 풀)
+    int water_boost_turns = 0;
+    int skip_boss_turn = 0;
+    int dodge_next = 0;
+    int reflect_damage = 0;
+
+    draw_status(player_hp, boss_hp);
+
+    while (player_hp > 0 && boss_hp > 0) {
+        printf("번호를 선택하세요 : ");
+        scanf("%d", &choice_number);
+
+        if (choice_number == 1) {
+            printf("\n1. 물 (%d회 남음) 2. 불 (%d회 남음) 3. 전기 (%d회 남음) 4. 풀 (%d회 남음)\n",
+                card_uses[0], card_uses[1], card_uses[2], card_uses[3]);
+            printf("공격에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_attack);
+
+            if (card_uses[choice_card_attack - 1] <= 0) {
+                printf("이 카드는 더 이상 사용할 수 없습니다.\n");
+                continue;
+            }
+
+            card_uses[choice_card_attack - 1]--;
+
+            if (choice_card_attack == 1) { // 물 카드
+                printf("\n1. 상명샘물   2. 침뱉기\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 스킬을 사용했다. ");
+                    boss_hp -= 15; // 물타입 공격력 증가 (50% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 스킬을 사용했다. ");
+                    boss_hp -= 13; // 물타입 공격력 증가 (50% 증가)
+                }
+                if (rand() % 3 == 0) {
+                    water_boost_turns = 1;
+                }
+            }
+            else if (choice_card_attack == 2) { // 불 카드
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 스킬을 사용했다\n");
+                    boss_hp -= 9;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 스킬을 사용했다\n");
+                    boss_hp -= 8;
+                }
+                int reflect_chance = rand() % 15;
+                if (reflect_chance < 5) {
+                    reflect_damage = 25;
+                }
+                else if (reflect_chance < 8) {
+                    reflect_damage = 50;
+                }
+                else if (reflect_chance < 10) {
+                    reflect_damage = 75;
+                }
+            }
+            else if (choice_card_attack == 3) { // 전기 카드
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 14;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 스킬을 사용했다\n");
+                    printf("상성 효과로 스킬의 위력이 증가합니다!");
+                    boss_hp -= 16;
+                }
+                if (rand() % 10 < 6) {
+                    skip_boss_turn = 1;
+                }
+            }
+            else if (choice_card_attack == 4) { // 풀 카드
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf(" 스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 스킬을 사용했다\n");
+                    boss_hp -= 10;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 스킬을 사용했다\n");
+                    boss_hp -= 9;
+                }
+                if (rand() % 2 == 0) {
+                    dodge_next = 1;
+                }
+            }
+            printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+        }
+        else if (choice_number == 2) {
+            printf("1. 물 2. 불. 3. 풀. 4. 전기\n");
+            printf("방어에 사용할 네 가지 카드 중 하나를 선택하세요 : ");
+            scanf("%d", &choice_card_protect);
+            if (choice_card_protect == 1) {
+                printf("\n1. 상명샘물  2. 침뱉기\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_water);
+                if (choice_card_skill_water == 1) {
+                    printf("\n상명샘물 방어 스킬을 사용했다\n");
+                    boss_damage -= 8; // 물타입 방어력 증가 (50% 증가)
+                }
+                else if (choice_card_skill_water == 2) {
+                    printf("\n침뱉기 방어 스킬을 사용했다\n");
+                    boss_damage -= 8; // 물타입 방어력 증가 (50% 증가)
+                }
+            }
+            else if (choice_card_protect == 2) {
+                printf("\n1. 길교수님의 열불  2. 과열된 노트북\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_fire);
+                if (choice_card_skill_fire == 1) {
+                    printf("\n길교수님의 열불 방어 스킬을 사용했다\n");
+                    boss_damage -= 7;
+                }
+                else if (choice_card_skill_fire == 2) {
+                    printf("\n과열된 노트북 방어 스킬을 사용했다\n");
+                    boss_damage -= 7;
+                }
+            }
+            else if (choice_card_protect == 3) {
+                printf("\n1. 김교수님의 한숨  2. 418의 에어컨 바람\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_plant);
+                if (choice_card_skill_plant == 1) {
+                    printf("\n김교수님의 한숨 방어 스킬을 사용했다\n");
+                    boss_damage -= 8;
+                }
+                else if (choice_card_skill_plant == 2) {
+                    printf("\n418의 에어컨 바람 방어 스킬을 사용했다\n");
+                    boss_damage -= 9;
+                }
+            }
+            else if (choice_card_protect == 4) {
+                printf("\n1. 블루투스 전자출결  2. 박교수님의 서버 다운\n");
+                printf("스킬 두 가지 중 하나를 선택하세요 : ");
+                scanf("%d", &choice_card_skill_electric);
+                if (choice_card_skill_electric == 1) {
+                    printf("\n블루투스 전자출결 방어 스킬을 사용했다\n");
+                    boss_damage -= 5;
+                }
+                else if (choice_card_skill_electric == 2) {
+                    printf("\n박교수님의 서버 다운 방어 스킬을 사용했다\n");
+                    boss_damage -= 4;
+                }
+            }
+        }
+        else if (choice_number == 3) {
+            printf("당신은 10층에서 도망쳤습니다.\n");
+            break;
+        }
+        else if (choice_number == 4) {
+            clear_screen();
+            main_menu();
+            break;
+        }
+
+        // 상태 갱신 후 화면 다시 그리기
+        draw_status(player_hp, boss_hp);
+
+        // 보스의 공격 차례
+        if (boss_hp > 0 && !skip_boss_turn) {
+            boss_damage = 5; // 보스의 기본 공격력 설정 (전기타입 보스의 공격력 증가)
+
+            if (dodge_next) {
+                printf("보스의 공격을 회피했습니다!\n");
+                dodge_next = 0;
+            }
+            else {
+                player_hp -= boss_damage;
+                printf("전기마법사가 당신을 공격했습니다. 플레이어의 체력이 %d 남았습니다.\n", player_hp);
+                if (reflect_damage > 0) {
+                    printf("공격 데미지의 %d%%를 반사했습니다!\n", reflect_damage);
+                    boss_hp -= boss_damage * reflect_damage / 100;
+                    reflect_damage = 0;
+                    printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+                }
+            }
+        }
+        else if (skip_boss_turn) {
+            printf("보스가 기절하여 공격하지 못했습니다.\n");
+            skip_boss_turn = 0;
+        }
+
+        // 물 카드 사용 후 플레이어 공격력 증가 처리
+        if (water_boost_turns > 0) {
+            if (rand() % 3 == 0) {
+                double boost = 1.8 + (rand() % 8) / 10.0;
+                printf("플레이어의 공격력이 %.1f배 증가했습니다!\n", boost);
+                boss_hp -= boss_damage * boost;
+                printf("보스의 체력이 %d 남았습니다.\n", boss_hp);
+            }
+            water_boost_turns = 0;
+        }
+
+        if (player_hp <= 0) {
+            printf("당신은 10층에서 죽었습니다.\n");
+            printf("스페이스바를 누르면 메인화면으로 돌아갑니다.");
+            space_bar_cls();
+            main_menu();
+            break;
+        }
+        else if (boss_hp <= 0) {
+            printf("보스를 처치했습니다! 탑의 정상을 정복했습니다. 축하합니다!\n");
             printf("엔터 키를 누르면 게임이 종료됩니다.\n");
             while (getchar() != '\n');
             exit(0);
@@ -1129,3 +2550,4 @@ void 탑의_4층() {
         draw_status(player_hp, boss_hp); // 상태 갱신 후 화면 다시 그리기
     }
 }
+
