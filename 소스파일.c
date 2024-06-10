@@ -37,6 +37,9 @@ void 탑의_4층();
 void 탑의_5층();
 void 탑의_6층();
 void 탑의_7층();
+void 탑의_8층();
+void 탑의_9층();
+void 탑의_10층();
 void main_menu();
 void tutorial();
 
